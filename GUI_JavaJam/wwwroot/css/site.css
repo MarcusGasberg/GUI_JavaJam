@@ -1,0 +1,149 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+html {
+    margin: 1% 20%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    text-align: center;
+    max-width: 100%;
+    background: #ccaa66;
+    font-size: 2em;
+    clear: both;
+}
+
+html, body {
+    min-height: 100%;
+    height: 100%;
+}
+
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: #ffffcc;
+    box-shadow: 5px 5px 5px #828282;
+}
+
+#flexContainer {
+    display: flex;
+    position: relative;
+}
+
+nav {
+    float: left;
+    flex: 15%;
+    min-height: 100%;
+    width: 100px;
+    background: #eedd88;
+}
+
+.content {
+    flex: 95%;
+    width: 100%;
+    background: #ffffcc;
+    padding: 10px 10px 10px 10px;
+}
+
+table {
+    margin: 15px;
+    border-spacing: 5px;
+}
+
+td, th {
+    padding: 5px 5px 5px 5px;
+}
+
+table tr:nth-of-type(odd) {
+    background: #ccaa66;
+}
+
+html, body {
+    min-height: 100%;
+    background-image: url('../images/background.gif');
+}
+
+#roadImg {
+    resize: both;
+    float: right;
+    min-width: 5%;
+    max-width: 60%;
+    margin: 20px;
+}
+
+nav a {
+    display: block;
+    margin: 10px;
+    color: #4343ff;
+}
+
+    nav a:hover {
+        color: #a3a3ff;
+    }
+
+    nav a:visited {
+        color: #4343ff;
+    }
+
+.contact_info p {
+    margin: 1px 1px 1px 30px;
+}
+
+dl {
+    margin: 10px;
+}
+
+dt {
+    margin: 5px;
+    padding: 2px 10px;
+    background: #ccaa66;
+}
+
+footer {
+    background: #ccaa66;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.6em;
+    clear: both;
+}
+
+    footer p {
+        margin: 1px;
+    }

@@ -1,0 +1,19 @@
+﻿@model MenuViewModel
+<table>
+    @foreach(var menu in Model.MenuItems)
+    {
+        <tr>
+                <th>@(menu.Name)</th>
+            <td>
+                <p>@(menu.Description)</p>
+                <p>
+                    @foreach (var price in menu.PriceModels)
+                    {
+                        <span>@(price.PriceDescription):</span>
+                        <span>$@(price.Price)</span>                            
+                    }
+                </p>
+            </td>
+        </tr>
+    }
+</table>
