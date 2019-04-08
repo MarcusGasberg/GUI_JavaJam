@@ -25,6 +25,7 @@ namespace GUI_JavaJam.Data
                 .HasOne(p => p.MenuItem)
                 .WithMany(m => m.PriceModels)
                 .HasForeignKey(p => p.MenuItemId);
+
             SeedData.Initialize(modelBuilder);
         }
     }

@@ -34,11 +34,6 @@ namespace GUI_JavaJam.Data
                     PriceModels = new List<MenuItemPriceModel>(),
                 });
 
-            modelBuilder.Entity<MenuItemPriceModel>()
-                .HasOne(p => p.MenuItem)
-                .WithMany(m => m.PriceModels)
-                .HasForeignKey(p => p.MenuItemId);
-
             modelBuilder.Entity<MenuItemPriceModel>().HasData(
                 new MenuItemPriceModel()
                 {
