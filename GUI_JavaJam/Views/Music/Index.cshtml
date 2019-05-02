@@ -1,0 +1,54 @@
+﻿
+<div id="app">
+    <input id="musicianDate" 
+           type="date"
+           v-model="date"
+           v-on:change="fetchMusicians()"
+           v-on:select="fetchMusicians()"/>
+    <dl id="musicianList">
+        <div class="musician" v-for="musician in musicians">
+            <dt>{{new Date(musician.timeOfPerformance).toDateString()}}</dt>
+            <dd>
+                <img v-bind:src="'./images/' + musician.pictureUrl"/>
+                <p>{{musician.musicianInfo}}</p>
+            </dd>
+        </div>
+    </dl>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            musicians: "",
+            date: ""
+        },
+        methods: {
+            fetchMusicians() {
+                let self = this;
+                let url = (typeof this.date === "undefined" || this.date === "")
+                    ? "./api/MusicApi/GetMusicians"
+                    : "./api/MusicApi/GetMusicians/" + this.date;
+                fetch(url)
+                    .then(
+                        function(response) {
+                            if (response.status !== 200) {
+                                console.log("No Musicians Could be found");
+                                return;
+                            }
+                            response.json()
+                                .then(function(data) {
+                                    self.musicians = data;
+                                });
+                        })
+                    .catch(function(err) {
+                        console.log("Error happened when fetching data: ", err);
+                    });
+            }
+        },
+        mounted() {
+            this.$nextTick(() => {
+                this.fetchMusicians();
+            });
+        }
+    });
+</script>

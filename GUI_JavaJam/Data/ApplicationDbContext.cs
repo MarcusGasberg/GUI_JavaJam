@@ -17,6 +17,8 @@ namespace GUI_JavaJam.Data
         public DbSet<MenuItemModel> MenuItemModels { get; set; }
         public DbSet<MenuItemPriceModel> MenuItemPriceModels { get; set; }
 
+        public DbSet<MusicianModel> MusicianModels { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

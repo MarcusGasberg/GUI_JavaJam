@@ -22,7 +22,12 @@ namespace GUI_JavaJam.Controllers
         // GET: Job
         public async Task<IActionResult> Index()
         {
-            return View(await _context.JobApplicantModel.ToListAsync());
+            var jobModel = await _context.JobApplicantModel.ToListAsync();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(jobModel);
+            }
+            return View(jobModel);
         }
 
         // GET: Job/Details/5
@@ -40,12 +45,22 @@ namespace GUI_JavaJam.Controllers
                 return NotFound();
             }
 
+
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(jobApplicantModel);
+            }
             return View(jobApplicantModel);
         }
 
         // GET: Job/Create
         public IActionResult Create()
         {
+
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView();
+            }
             return View();
         }
 
@@ -62,6 +77,10 @@ namespace GUI_JavaJam.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index),"Home");
             }
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(jobApplicantModel);
+            }
             return View(jobApplicantModel);
         }
 
@@ -77,6 +96,11 @@ namespace GUI_JavaJam.Controllers
             if (jobApplicantModel == null)
             {
                 return NotFound();
+            }
+
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(jobApplicantModel);
             }
             return View(jobApplicantModel);
         }
@@ -111,7 +135,13 @@ namespace GUI_JavaJam.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
+            }
+
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(jobApplicantModel);
             }
             return View(jobApplicantModel);
         }
@@ -131,6 +161,10 @@ namespace GUI_JavaJam.Controllers
                 return NotFound();
             }
 
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView(jobApplicantModel);
+            }
             return View(jobApplicantModel);
         }
 

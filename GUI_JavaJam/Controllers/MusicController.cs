@@ -11,14 +11,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GUI_JavaJam.Controllers
 {
-    public class HomeController : Controller
+    public class MusicController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public HomeController(ApplicationDbContext dbContext)
+        public MusicController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
         public IActionResult Index()
         {
             ViewData["Title"] = "JavaJam Home";
@@ -29,17 +30,6 @@ namespace GUI_JavaJam.Controllers
             return View();
         }
 
-        public IActionResult Menu()
-        {
-            ViewData["Title"] = "JavaJam Menu";
-            var menuItems = _dbContext.MenuItemModels.Include(m=>m.PriceModels).ToList();
-            var menuViewModel = new MenuViewModel() {MenuItems = menuItems};
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-            {
-                return PartialView(menuViewModel);
-            }
-            return View(menuViewModel);
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -11,6 +11,24 @@ namespace GUI_JavaJam.Data
     {
         public static void Initialize(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<MusicianModel>().HasData(new MusicianModel()
+            {
+                Id = 1,
+                Name = "Melanie Morris",
+                TimeOfPerformance = DateTime.Today,
+                PictureUrl = "melaniethumb.jpg",
+                MusicianInfo =
+                    "Melanie Morris entertains with her melodic folk style. Check out the podcast! CDs are now available."
+            },
+            new MusicianModel()
+            {
+                Id = 2,
+                Name = "Tahoe Greg",
+                TimeOfPerformance = DateTime.Today.AddDays(1),
+                PictureUrl = "gregthumb.jpg",
+                MusicianInfo =
+                   "Tahoe Greg's back from his tour. New songs. New stories. CDs are now available."
+            });
 
             modelBuilder.Entity<MenuItemModel>().HasData(new MenuItemModel()
                 {
