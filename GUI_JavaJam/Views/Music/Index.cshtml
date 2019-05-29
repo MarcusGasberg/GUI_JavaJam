@@ -10,7 +10,7 @@
             <dt>{{new Date(musician.timeOfPerformance).toDateString()}}</dt>
             <dd>
                 <img v-bind:src="'./images/' + musician.pictureUrl"/>
-                <p>{{musician.musicianInfo}}</p>
+                <p>{{musician.musicianInfo}}</p>    
             </dd>
         </div>
     </dl>
@@ -37,7 +37,7 @@
                             }
                             response.json()
                                 .then(function(data) {
-                                    self.musicians = data;
+                                    vm.musicians = data;
                                 });
                         })
                     .catch(function(err) {
